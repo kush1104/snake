@@ -1,10 +1,3 @@
-# events-example0.py
-# Barebones timer, mouse, and keyboard events
-
-#NAME: Kush Mathur
-#ANDREW ID: kushagrm
-#SECTION: A
-
 from tkinter import *
 import random
 
@@ -15,12 +8,6 @@ import random
 # CONTROLLER:  event-handling functions and their helper functions
 ####################################
 
-
-####################################
-# customize these functions
-####################################
-
-# Initialize the data which will be used to draw on the screen.
 def init(data):
     # load data as appropriate
     data.rows, data.cols = 8,15
@@ -85,8 +72,6 @@ def initBoard(data):
     data.board[data.headRow][data.headCol] = 1
 
 # These are the CONTROLLERs.
-# IMPORTANT: CONTROLLER does *not* draw at all!
-# It only modifies data according to the events.
 def mousePressed(event, data):
     cellW = (data.width-2*data.margin)/data.cols
     cellH = (data.height-2*data.margin)/data.rows
@@ -218,8 +203,6 @@ def removeTail(data):
                 data.board[row][col] -= 1
 
 # This is the VIEW
-# IMPORTANT: VIEW does *not* modify data at all!
-# It only draws on the canvas.
 def redrawAll(canvas, data):
     # canvas when game is over
     if (data.isGameOver):
@@ -287,11 +270,6 @@ def determineCellColor(data, row, col):
             fill = 'brown'
             
     return fill
-####################################
-####################################
-# use the run function as-is
-####################################
-####################################
 
 def run(width=300, height=300):
     def redrawAllWrapper(canvas, data):
